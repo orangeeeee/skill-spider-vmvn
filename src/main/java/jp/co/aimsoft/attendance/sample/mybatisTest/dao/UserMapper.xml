@@ -1,0 +1,53 @@
+<!--
+Mapperの場所はどこでも良いが、javaファイルとセットで直すものなので、
+同一ディレクトリに置くこととする。
+ -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.aimsoft.attendance.sample.mybatisTest.dao.UserMapper">
+
+    <insert id="addUser" parameterType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
+        INSERT INTO user_master (
+          user_id,
+          user_name,
+          department,
+          position,
+          password
+        )
+        VALUES (
+          #{userId},
+          #{userName},
+          #{department},
+          #{position},
+          #{password}
+        )
+    </insert>
+    <update id="updateOne" parameterType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
+		UPDATE user_master
+			<set>
+				user_id=#{userId},
+				user_name=#{userName},
+				department=#{department},
+				position=#{position},
+				password=#{password}
+			</set>
+		WHERE user_id=#{userId}
+	</update>
+	<select id="findOne" parameterType="String" resultType="jp.co.aimsoft.attendance.sample.mybatisTest.dao.domain.UserDto">
+        SELECT 
+          user_id,
+          user_name,
+          department,
+          position,
+          password
+        FROM
+          user_master
+        WHERE
+          user_id = #{userId}
+    </select>
+	<delete id="deleteOne" parameterType="String">
+        DELETE FROM
+          user_master
+        WHERE
+          user_id = #{userId}
+    </delete>
+</mapper>

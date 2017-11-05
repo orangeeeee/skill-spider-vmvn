@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+
+	<!-- Spring mvc annotationの利用設定 -->
+	<!-- @Autowired,@Resourceを利用する場合の宣言 -->
+	<mvc:annotation-driven/>
+
+	<!-- Multipart対応 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.support.StandardServletMultipartResolver" />
+	<!-- ExceptionHandler -->
+	<bean class="jp.co.aimsoft.attendance.config.resolver.ExceptionHandlerResolver"/>
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes" value="text/plain;charset=UTF-8" />
+				<property name="writeAcceptCharset" value="false" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	<!-- SessionScopedBean:アノテーションを使用しない場合、ここで設定も可能 -->
+	<!-- <bean id="sessionBeanSample" class="jp.co.aimsoft.attendance.sample.mybatisTest.model.SessionBeanSample" scope="session"/> -->
+</beans>

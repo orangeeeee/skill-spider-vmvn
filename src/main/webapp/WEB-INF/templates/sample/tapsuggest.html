@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../../../lib/tapsuggest/css/reset.css" data-th-href="@{/lib/tapsuggest/css/reset.css}" />
+    <link rel="stylesheet" href="../../../lib/tapsuggest/css/demo.css" data-th-href="@{/lib/tapsuggest/css/demo.css}" />
+    <link rel="stylesheet" href="../../../lib/tapsuggest/css/TapSuggest.css" data-th-href="@{/lib/tapsuggest/css/TapSuggest.css}" />
+    <script src="../../../node_modules/jquery/dist/jquery.js" data-th-src="@{/node_modules/jquery/dist/jquery.js}"></script>
+    <script src="../../../lib/tapsuggest/js/Jquery.TapSuggest.js" data-th-src="@{/lib/tapsuggest/js/Jquery.TapSuggest.js}"></script>
+    <title>サンプル画面</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>TapSuggest.js(default)</h1>
+        <h2>ユーザー名検索</h2>
+        <div class="formArea">
+            <form method="post" action="">
+                <div class="inputArea">
+                    <input type="text" name="dummy" class="tsInput"></input>
+                    <br />
+                    <input type="hidden" name="dummy3"></input>
+                </div>
+                <input type="text" name="dummy-u"></input>
+            </form>
+        </div>
+        <div class="tsArea"></div>
+    </div>
+    <script src="../../../js/sample/suggest/index.js" data-th-src="@{/js/sample/suggest/index.js}"></script>
+
+</body>
+
+</html>
