@@ -1,14 +1,20 @@
 package jp.co.aimsoft.attendance.sample.dzone.strategy.model;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * クレジットカードクラス
  */
+@Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class CreditCard extends Card {
 
-	public CreditCard(String nameOnCard, String number, String cvv, String expirationDate) {
-		super(nameOnCard, number, cvv, expirationDate);
-	}
-	
+//	public CreditCard(String nameOnCard, String number, String cvv, String expirationDate) {
+//		// super(nameOnCard, number, cvv, expirationDate);
+//	}
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -16,7 +22,7 @@ public class CreditCard extends Card {
 	protected String getType() {
 		return "credit";
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

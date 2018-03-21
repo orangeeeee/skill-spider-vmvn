@@ -1,14 +1,23 @@
 package jp.co.aimsoft.attendance.sample.dzone.strategy.model;
 
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
- * 	デビットカードクラス
+ * デビットカードクラス TODO
+ * DZoneでは、このようなやりかたはしていないが、singletonでは良くないので、prototypeを明示的に指定する。
  */
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Component
 public class DebitCard extends Card {
 
-	public DebitCard(String nameOnCard, String number, String cvv, String expirationDate) {
-		super(nameOnCard, number, cvv, expirationDate);
-	}
-	
+	// TODO 引数有のコンストラクタがある状態でDIするとBean定義がないのでエラーとなる。
+	// public DebitCard(String nameOnCard, String number, String cvv, String
+	// expirationDate) {
+	//// super(nameOnCard, number, cvv, expirationDate);
+	// }
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -16,7 +25,7 @@ public class DebitCard extends Card {
 	protected String getType() {
 		return "debit";
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */

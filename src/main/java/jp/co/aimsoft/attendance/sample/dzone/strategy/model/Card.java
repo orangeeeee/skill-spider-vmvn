@@ -14,17 +14,26 @@ import java.text.MessageFormat;
  */
 public abstract class Card implements PaymentMethod {
 
-	private final String nameOnCard;
-	private final String number;
-	private final String cvv;
-	private final String expirationDate;
+	private String nameOnCard;
+	private String number;
+	private String cvv;
+	private String expirationDate;
 
-	public Card(String nameOnCard, String number, String cvv, String expirationDate) {
-		// initialize final member variable.(初期化)
+	// public Card(String nameOnCard, String number, String cvv, String
+	// expirationDate) {
+	// // initialize final member variable.(初期化)
+	// this.nameOnCard = nameOnCard;
+	// this.number = number;
+	// this.cvv = cvv;
+	// this.expirationDate = expirationDate;
+	// }
+	public Card init(String nameOnCard, String number, String cvv, String expirationDate) {
 		this.nameOnCard = nameOnCard;
 		this.number = number;
 		this.cvv = cvv;
 		this.expirationDate = expirationDate;
+		return this;
+
 	}
 
 	@Override
